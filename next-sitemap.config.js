@@ -1,24 +1,26 @@
 // next-sitemap.config.js
 export default {
-  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || 'https://www.hexasortlevel.com/',
-  generateRobotsTxt: true,
+  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || 'https://www.hexasortlevel.com/', // 生产环境的站点 URL
+  generateRobotsTxt: true, // 生成 robots.txt 文件
+  sitemapSize: 7000, // 每个 sitemap 文件最多 7000 个 URL
   
-  // 1. 确保只生成一个 sitemap 文件
-  sitemapSize: 7000, // 设置大于总页面数的值
-  
-  // 2. 包含所有页面类型
+  // 生成额外的路径（静态和动态）
   additionalPaths: async (config) => {
     const paths = [
       '/', // 首页
       '/privacy',
       '/terms',
-      '/blogs',
-      '/blogs/hexa-sort-lion-studios-casual-puzzle-leader',
-      '/levels',
       '/playonline',
+      '/download',
       // 添加其他静态页面路径
     ];
     
+    // 动态博客页面路径（根据你的需求，循环生成动态博客页面）
+    const blogSlugs = ['hexa-sort-lion-studios-casual-puzzle-leader', 'another-blog-slug']; // 假设有这些动态 slugs
+    blogSlugs.forEach(slug => {
+      paths.push(`/blogs/${slug}`);
+    });
+
     return paths.map(path => ({
       loc: path,
       changefreq: 'daily',
@@ -27,16 +29,28 @@ export default {
     }));
   },
   
-  // 包含动态路由页面
+  // 处理动态路径
   transform: async (config, path) => {
-    // 包含所有页面类型
+    // 针对动态路径的特殊处理
+    if (path.startsWith('/blogs/')) {
+      return {
+        loc: path,
+        changefreq: 'daily',
+        priority: 0.7,
+        lastmod: new Date().toISOString(),
+      };
+    }
+
+    // 对其他静态页面路径的处理
     return {
       loc: path,
       changefreq: 'daily',
       priority: path === '/' ? 1.0 : 0.7,
       lastmod: new Date().toISOString(),
-    }
+    };
   },
+
+  
     robotsTxtOptions: {
         policies: [
           // 常规搜索引擎规则
