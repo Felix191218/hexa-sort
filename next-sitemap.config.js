@@ -14,7 +14,7 @@ export default {
       '/terms',
       '/blogs',
       '/blogs/hexa-sort-lion-studios-casual-puzzle-leader',
-      '/leves',
+      '/levels',
       '/playonline',
       // 添加其他静态页面路径
     ];
