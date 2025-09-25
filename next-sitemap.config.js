@@ -49,7 +49,6 @@ export default {
       lastmod: new Date().toISOString(),
     };
   },
-
   
     robotsTxtOptions: {
         policies: [
