@@ -16,7 +16,7 @@ export default {
     ];
 
     // 动态博客页面路径（根据你的需求，循环生成动态博客页面）
-    const blogSlugs = ['hexa-sort-lion-studios-casual-puzzle-leader']; // 假设有这些动态 slugs
+    const blogSlugs = ['hexa-sort-lion-studios-casual-puzzle-leader','flawed-design-hexa-sort-hexagonal-elimination']; // 假设有这些动态 slugs
     
     // 验证每个 slug 是否存在
     for (const slug of blogSlugs) {
