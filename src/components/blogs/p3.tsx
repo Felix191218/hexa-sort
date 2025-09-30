@@ -3,6 +3,7 @@ export const post3 = {
     id: 3,
     slug: "3",
     title: "Tips for Solving Hexa Sort Levels Faster",
+    description: "",
     content: `
       <p>Coming soon...</p>
     `,

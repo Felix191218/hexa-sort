@@ -17,6 +17,9 @@ Hexa Sort is a fun and strategic puzzle game that challenges players to sort col
 - [Hexa Sort](https://www.hexasortlevel.com) - Solve colorful tile-sorting challenges in multiple levels
 - [Hexa Sort 3D](https://www.hexasortlevel.com/playonlie) - Play the 3D version with immersive gameplay and animations
 - [Level Guides](https://www.hexasortlevel.com/levels) - Access step-by-step solutions for over 150 levels
+- [Hexa Sort: Lion Studios' Leader in Casual Puzzle Games](https://www.hexasortlevel.com/hexa-sort-lion-studios-casual-puzzle-leader) - How did Hexa Sort dominate the charts? We analyze the 10M-download hit, its casual gameplay, 70/30 ad revenue split, and strategic advantages over competitors.
+- [Flawed Design: Hexa Sort (Hexagonal Elimination)](https://www.hexasortlevel.com/flawed-design-hexa-sort-hexagonal-elimination) - Deep dive into Hexa Sort's core design flaws: We analyze its mechanics, monetization issues, and suggest improvements to boost player satisfaction.
+
 
 ## Gameplay Features
 

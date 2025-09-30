@@ -2,6 +2,7 @@ export const post1 = {
   id: 1,
   slug: "hexa-sort-lion-studios-casual-puzzle-leader",
   title: "Hexa Sort: Lion Studios' Leader in Casual Puzzle Games",
+  description: "How did Hexa Sort dominate the charts? We analyze the 10M-download hit, its casual gameplay, 70/30 ad revenue split, and strategic advantages over competitors.",
   content: `
     <div class="space-y-6">
       <p class="text-gray-700 leading-relaxed">

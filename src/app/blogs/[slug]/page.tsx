@@ -91,7 +91,9 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 
   // 如果找到文章，返回 SEO 数据
   return {
-    title: `${post.title} | Hexa Sort Blog`,
-    description: post.content.replace(/<[^>]*>/g, '').substring(0, 160), // 提取前 160 个字符作为 SEO 描述
+    title: `${post.title}`,
+    description: post.description 
+    ? post.description 
+    : post.content.replace(/<[^>]*>/g, '').substring(0, 160),
   };
 }
