@@ -17,7 +17,7 @@ export default function LevelCard({ level, title, thumbnail, onSelect }: LevelCa
     >
       <Image 
         src={thumbnail} // 使用 next/image 的 src 属性
-        alt={`Level ${level}`} 
+        alt={`Hexa Sort Level ${level} Solution Walkthrough`} 
         className="rounded-lg mb-3 w-full h-32 object-cover" 
         width={400} // 根据需要指定宽度
         height={128} // 根据需要指定高度

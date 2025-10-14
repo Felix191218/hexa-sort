@@ -12,26 +12,28 @@ interface Level {
 }
 
 // 动态生成元数据
-export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
-  const id = Number(params.id);
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+  // 等待 params 解析
+  const { id } = await params;
+  const levelId = Number(id);
   
   return {
-    title: `Hexa Sort Level ${id} Guide – Tips & Strategies`,
-    description: `Complete walkthrough and solutions for Hexa Sort level ${id}. Find tips and strategies to master this level and progress through the game.`,
+    title: `Hexa Sort Level ${levelId} Guide – Tips & Strategies`,
+    description: `Complete walkthrough and solutions for Hexa Sort level ${levelId}. Find tips and strategies to master this level and progress through the game.`,
     alternates: {
-      canonical: `https://www.hexasortlevel.com/levels/${id}`,
+      canonical: `https://www.hexasortlevel.com/levels/${levelId}`,
     },
     openGraph: {
-      title: `Hexa Sort Level ${id} Guide – Tips & Strategies`,
-      description: `Complete walkthrough and solutions for Hexa Sort level ${id}. Find tips and strategies to master this level and progress through the game.`,
-      url: `https://www.hexasortlevel.com/levels/${id}`,
+      title: `Hexa Sort Level ${levelId} Guide – Tips & Strategies`,
+      description: `Complete walkthrough and solutions for Hexa Sort level ${levelId}. Find tips and strategies to master this level and progress through the game.`,
+      url: `https://www.hexasortlevel.com/levels/${levelId}`,
       siteName: 'Hexa Sort Level Guide',
       images: [
         {
-          url: `https://www.hexasortlevel.com/images/level-${id}-og.jpg`,
+          url: `/hexa-sort-logo.webp`,
           width: 1200,
           height: 630,
-          alt: `Hexa Sort Level ${id} Solution`,
+          alt: `Hexa Sort Level ${levelId} Solution`,
         },
       ],
       locale: 'en_US',
@@ -39,9 +41,9 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
     },
     twitter: {
       card: 'summary_large_image',
-      title: `Hexa Sort Level ${id} Guide – Tips & Strategies`,
-      description: `Complete walkthrough and solutions for Hexa Sort level ${id}. Find tips and strategies to master this level and progress through the game.`,
-      images: [`https://www.hexasortlevel.com/images/level-${id}-twitter.jpg`],
+      title: `Hexa Sort Level ${levelId} Guide – Tips & Strategies`,
+      description: `Complete walkthrough and solutions for Hexa Sort level ${levelId}. Find tips and strategies to master this level and progress through the game.`,
+      images: [`/hexa-sort-logo.webp`],
     },
     robots: {
       index: true,
@@ -64,12 +66,14 @@ export async function generateStaticParams() {
   return (data as Level[]).map((l) => ({ id: String(l.id) }));
 }
 
-// 详情页
-export default function Page({ params }: { params: { id: string } }) {
-  const id = Number(params.id); // 将 id 转换为数字
+// 详情页 - 现在需要是异步函数
+export default async function Page({ params }: { params: Promise<{ id: string }> }) {
+  // 等待 params 解析后再使用
+  const { id } = await params;
+  const levelId = Number(id); // 将 id 转换为数字
   const levels = data as Level[];
 
-  const idx = levels.findIndex((l) => l.id === id); // 查找当前 level
+  const idx = levels.findIndex((l) => l.id === levelId); // 查找当前 level
   const level = idx >= 0 ? levels[idx] : null; // 如果找不到对应关卡返回 null
   if (!level) return <div className="p-8">Level not found.</div>; // 找不到关卡返回错误页面
 

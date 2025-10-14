@@ -1,6 +1,10 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import LevelCard from './LevelCard';
+import { useRouter } from "next/navigation"; // 添加路由功能
+
+// 导入 JSON 数据
+import levelsJson from '@/data/levels.json';
 
 type LevelRange = {
   start: number;
@@ -8,10 +12,16 @@ type LevelRange = {
   label: string;
 };
 
+type LevelData = {
+  id: number;
+  title: string;
+  videoId: string;
+  thumb: string;
+};
+
 const generateLevelRanges = (): LevelRange[] => {
   const ranges: LevelRange[] = [];
   
-  // 根据第二张图片中的分段方式
   const segments = [
     { start: 1, end: 30 },
     { start: 31, end: 71 },
@@ -29,17 +39,20 @@ const generateLevelRanges = (): LevelRange[] => {
   return ranges;
 };
 
-const fetchYouTubeVideos = async (level: number): Promise<{ thumbnail: string; title: string }> => {
-    const thumbnail = `/images/thumbnails/hxea-sort-level-${level}.webp`; // 使用本地封面图
-    return {
-      thumbnail: thumbnail,
-      title: `Hexa Sort Level ${level} Walkthrough`
-    };
+const createLevelsMap = (): { [key: number]: LevelData } => {
+  const map: { [key: number]: LevelData } = {};
+  
+  levelsJson.forEach(data => {
+    map[data.id] = data;
+  });
+  
+  return map;
 };
 
 export default function LevelSelector() {
+  const router = useRouter(); // 使用路由
   const [selectedRange, setSelectedRange] = useState<LevelRange>({ start: 32, end: 71, label: 'Level 32-71' });
-  const [levelsData, setLevelsData] = useState<{ [key: number]: { thumbnail: string; title: string } }>({});
+  const [levelsMap] = useState<{ [key: number]: LevelData }>(createLevelsMap());
   const [loading, setLoading] = useState<boolean>(false);
   
   const levelRanges = generateLevelRanges();
@@ -48,18 +61,15 @@ export default function LevelSelector() {
     setSelectedRange(range);
     setLoading(true);
     
-    const newLevelsData: { [key: number]: { thumbnail: string; title: string } } = {};
+    // 模拟加载延迟
+    await new Promise(resolve => setTimeout(resolve, 500));
     
-    for (let level = range.start; level <= range.end; level++) {
-      newLevelsData[level] = await fetchYouTubeVideos(level);
-    }
-    
-    setLevelsData(newLevelsData);
     setLoading(false);
   };
   
+  // 修改为跳转到关卡详情页
   const handleLevelSelect = (level: number) => {
-    window.open(`https://www.youtube.com/watch?v=dQw4w9WgXcQ&level=${level}`, '_blank');
+    router.push(`/levels/${level}`);
   };
   
   useEffect(() => {
@@ -75,7 +85,7 @@ export default function LevelSelector() {
             Hexa Sort Level Cheats & Solutions
           </h2>
           <p className="text-xl text-amber-700">
-            Find walkthroughs, tips and strategies for each level
+            Find Hexa Sort Level walkthroughs, tips and strategies for each level
           </p>
         </div>
         
@@ -97,7 +107,7 @@ export default function LevelSelector() {
         
         {/* 分段选择器 */}
         <div className="mb-10">
-          <h3 className="text-xl font-semibold text-blue-600 mb-4 text-center">Select Level Range</h3>
+          <h3 className="text-xl font-semibold text-blue-600 mb-4 text极center">Select Level Range</h3>
           <div className="flex flex-wrap justify-center gap-3">
             {levelRanges.map((range, index) => (
               <button
@@ -124,24 +134,32 @@ export default function LevelSelector() {
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6">
             {Array.from({ length: selectedRange.end - selectedRange.start + 1 }, (_, i) => {
               const level = selectedRange.start + i;
-              const data = levelsData[level] || { 
-                thumbnail: `https://picsum.photos/200/120?random=${level}`, 
-                title: `Level ${level}` 
-              };
+              const levelData = levelsMap[level];
+              
+              if (levelData) {
+                return (
+                  <LevelCard
+                    key={level}
+                    level={level}
+                    title={levelData.title}
+                    thumbnail={levelData.thumb}
+                    onSelect={handleLevelSelect} // 使用修改后的处理函数
+                  />
+                );
+              }
               
               return (
                 <LevelCard
                   key={level}
                   level={level}
-                  title={data.title}
-                  thumbnail={data.thumbnail}
-                  onSelect={handleLevelSelect}
+                  title={`Hexa Sort Level ${level} Walkthrough`}
+                  thumbnail={`/images/thumbnails/hxea-sort-level-${level}.webp`}
+                  onSelect={handleLevelSelect} // 使用修改后的处理函数
                 />
               );
             })}
           </div>
         )}
-        
       </div>
     </div>
   );

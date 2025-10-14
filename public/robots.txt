@@ -110,8 +110,5 @@ Disallow: /
 User-agent: Bytespider
 Disallow: /
 
-# Host
-Host: https://www.hexasortlevel.com/
-
 # Sitemaps
 Sitemap: https://www.hexasortlevel.com/sitemap.xml

@@ -40,7 +40,7 @@ const generateLevelRanges = (): LevelRange[] => {
 };
 
 const fetchYouTubeVideos = async (level: number): Promise<{ thumbnail: string; title: string }> => {
-    const thumbnail = `/images/thumbnails/hxea-sort-level-${level}.webp`; // 使用本地图片  
+    const thumbnail = `/images/thumbnails/hexa-sort-level-${level}.webp`; // 使用本地图片  
     return {
     thumbnail: thumbnail,
     title: `Hexa Sort Level ${level} Walkthrough`
