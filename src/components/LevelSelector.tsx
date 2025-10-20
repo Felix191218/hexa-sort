@@ -26,6 +26,7 @@ const generateLevelRanges = (): LevelRange[] => {
     { start: 1, end: 30 },
     { start: 31, end: 71 },
     { start: 72, end: 111 },
+    { start: 112, end: 141 },
   ];
   
   segments.forEach(segment => {
