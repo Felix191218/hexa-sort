@@ -19,6 +19,7 @@ export default function Navbar() {
           <div className="space-x-6 hidden md:flex">
             <Link href="/" className="hover:text-blue-600">Home</Link>
             <Link href="/levels" className="hover:text-blue-600">Levels</Link>
+            <Link href="/magic-sort" className="hover:text-blue-600">Magic Sort</Link>
             <Link href="/playonline" className="hover:text-blue-600">Play Online</Link>
             <Link href="/download" className="hover:text-blue-600">Download</Link>
             <Link href="/blogs" className="hover:text-blue-600">Blogs</Link>

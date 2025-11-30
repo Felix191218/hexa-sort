@@ -12,6 +12,7 @@ export default {
       '/terms',
       '/playonline',
       '/download',
+      '/magic-sort',
       // 添加其他静态页面路径
     ];
 

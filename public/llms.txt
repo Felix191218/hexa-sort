@@ -19,6 +19,7 @@ Hexa Sort is a fun and strategic puzzle game that challenges players to sort col
 - [Level Guides](https://www.hexasortlevel.com/levels) - Access step-by-step solutions for over 150 levels
 - [Hexa Sort: Lion Studios' Leader in Casual Puzzle Games](https://www.hexasortlevel.com/hexa-sort-lion-studios-casual-puzzle-leader) - How did Hexa Sort dominate the charts? We analyze the 10M-download hit, its casual gameplay, 70/30 ad revenue split, and strategic advantages over competitors.
 - [Flawed Design: Hexa Sort (Hexagonal Elimination)](https://www.hexasortlevel.com/flawed-design-hexa-sort-hexagonal-elimination) - Deep dive into Hexa Sort's core design flaws: We analyze its mechanics, monetization issues, and suggest improvements to boost player satisfaction.
+- [Magic Sort Guide](https://www.hexasortlevel.com/magic-sort) - Play Magic Sort, the top-rated water sorting puzzle game. Master the art of precise pouring, utilize Shuffle Magic, and brew powerful potions with the Alchemy System. Download or play online now!
 
 
 ## Gameplay Features
