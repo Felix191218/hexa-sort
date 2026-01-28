@@ -3,6 +3,8 @@ import { Metadata } from 'next';
 import GameDetail from "@/components/GameDetail";
 import Levels from "@/components/Levels";
 import Image from 'next/image';
+import AdBanner from '@/components/AdBanner';  // 引入 AdBanner 组件
+
 
 export const metadata: Metadata = {
   title: 'Play Hexa Sort Online - Free Color-Matching Puzzle Game',
@@ -70,6 +72,9 @@ function ClientContent() {
             }
           />
         </div>
+         {/* 插入广告 */}
+         <AdBanner />
+        
         
         {/* 关卡选择器 */}
         <Levels />

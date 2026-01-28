@@ -1,6 +1,8 @@
 import data from "@/data/magic-levels.json"; // 确保使用正确的 JSON 文件
 import LevelDetail from "@/components/LevelDetailMagic"; // 假设这是 LevelDetailMagic.tsx
 import Levels from "@/components/LevelsMagic"; // 假设这是 LevelSelector.tsx
+import AdBanner from "@/components/AdBanner"; // 引入广告组件
+
 import { Metadata } from "next";
 
 // 定义 Level 类型
@@ -110,6 +112,10 @@ export default async function Page({ params }: { params: { id: string } }) {
     <>
       {/* LevelDetailMagic 组件包含了所有主题和关键词替换 */}
       <LevelDetail level={level} prev={prev} next={next} adjacent={adjacent} />
+
+       {/* 插入广告组件 */}
+       <AdBanner />
+       
       {/* LevelsMagic 组件包含了关卡选择器 */}
       <Levels /> 
     </>

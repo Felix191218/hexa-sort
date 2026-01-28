@@ -2,6 +2,8 @@ import Link from "next/link";
 import { post1 } from "@/components/blogs/p1";
 import { post2 } from "@/components/blogs/p2";
 import { post3 } from "@/components/blogs/p3";
+import AdBanner from "@/components/AdBanner"; // 引入广告组件
+
 
 const blogPosts = [post1, post2, post3];
 
@@ -38,6 +40,10 @@ export default function BlogListPage() {
 
       <div className="min-h-screen bg-[#f0f4f8] py-12">
         <div className="max-w-4xl mx-auto px-4">
+
+          {/* 插入广告组件 */}
+          <AdBanner />
+          
           <h1 className="text-3xl font-bold text-blue-600 mb-8">Hexa Sort Blog</h1>
 
           <div className="space-y-8">

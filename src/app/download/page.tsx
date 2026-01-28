@@ -1,5 +1,7 @@
 import Download from "@/components/Download";
 import Levels from "@/components/Levels";
+import AdBanner from "@/components/AdBanner"; // 引入广告组件
+
 
 export default function HexaSortPage() {
   return (
@@ -34,6 +36,9 @@ export default function HexaSortPage() {
 
       <main>
         <Download />
+         {/* 插入广告 */}
+         <AdBanner />
+
         <Levels />
       </main>
     </>

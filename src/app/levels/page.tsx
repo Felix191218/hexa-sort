@@ -1,6 +1,8 @@
 // app/levels/page.tsx
 import LevelsAll from "@/components/LevelsAll";
 import PlayNow from "@/components/PlayNow";
+import AdBanner from "@/components/AdBanner"; // 引入广告组件
+
 
 import { Metadata } from "next";
 
@@ -18,6 +20,8 @@ export default function LevelsPage() {
       <>
         {/* 这里可以导入 <Levels /> 组件 */}
         <LevelsAll />
+        {/* 插入广告组件 */}
+      <AdBanner />
         <PlayNow />
 
       </>

@@ -5,6 +5,8 @@ import Features from "@/components/FeaturesMagic";
 import Download from "@/components/DownloadMagic";
 import About from "@/components/AboutMagic";
 import FAQ from "@/components/FAQMagic";
+import AdBanner from "@/components/AdBanner"; // 引入广告组件
+
 import WhatIs from "@/components/WhatIs";
 
 // 1. 动态生成元数据
@@ -58,6 +60,8 @@ export default function Home() {
   return (
     <>
       <Hero />
+      {/* 插入广告组件 */}
+      <AdBanner />
       <Levels />
       <Features />
       <WhatIs />

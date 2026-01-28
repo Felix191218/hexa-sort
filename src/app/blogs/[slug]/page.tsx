@@ -6,6 +6,8 @@ import { post3 } from '@/components/blogs/p3';
 import BlogPostHeader from '@/components/BlogPostHeader';
 import BlogPostContent from '@/components/BlogPostContent';
 import RelatedArticles from '@/components/RelatedArticles';
+import AdBanner from "@/components/AdBanner"; // 引入广告组件
+
 
 // 将所有博客文章合并到一个数组
 const blogPosts = [post1, post2, post3];
@@ -44,6 +46,10 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
           date={post.date} 
           readTime={post.readTime} 
         />
+
+        {/* 插入广告组件 */}
+        <AdBanner />
+        
         <BlogPostContent content={post.content} />
         <RelatedArticles postSlug={post.slug} blogPosts={blogPosts} />
       </div>

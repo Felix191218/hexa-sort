@@ -1,6 +1,8 @@
 // app/magic-sort-levels/page.tsx
 import LevelsAll from "@/components/LevelsAll";
 import PlayNow from "@/components/PlayNow";
+import AdBanner from "@/components/AdBanner"; // 引入广告组件
+
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -24,6 +26,9 @@ export default function LevelsPage() {
             Master every level with our detailed walkthroughs, precise pouring strategies, and alchemy tips
           </p>
         </div>
+
+         {/* 插入广告 */}
+         <AdBanner />
         
         {/* 关卡列表组件 */}
         <LevelsAll />

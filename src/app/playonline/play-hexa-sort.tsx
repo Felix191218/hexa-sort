@@ -1,7 +1,7 @@
-// src/app/playonline/play-hexa-sort.tsx
-
 import { Metadata } from 'next';
 import HexaSortPageClient from './page';
+import AdBanner from '@/components/AdBanner';  // 引入 AdBanner 组件
+
 
 export const metadata: Metadata = {
   title: 'Play Hexa Sort Online - Free Color-Matching Puzzle Game',
@@ -23,5 +23,13 @@ export const metadata: Metadata = {
 };
 
 export default function HexaSortPage() {
-  return <HexaSortPageClient />;
+  return (
+    <div>
+      {/* 插入广告 */}
+      <AdBanner />
+      
+      {/* 游戏页面内容 */}
+      <HexaSortPageClient />
+    </div>
+  );
 }
